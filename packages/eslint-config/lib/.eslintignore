@@ -1,0 +1,7 @@
+node_modules
+dist
+
+!.prettierrc.js
+!.stylelintrc.js
+!.eslintrc.js
+!.cz-config.js
