@@ -1,0 +1,62 @@
+{
+  "name": "dext7r",
+  "version": "1.0.0",
+  "description": "dext7r",
+  "main": "index.js",
+  "private": false,
+  "scripts": {
+    "eslint:fix": "npx eslint --cache --fix --ext .js,.jsx,.ts,.tsx ./src",
+    "lint": "npx lint-staged",
+    "commit": "npx git-cz",
+    "lint:commit": "npm run lint && npm run commit",
+    "prepare": "husky install",
+    "bootstap": "lerna bootstap",
+    "publish": "lerna publish from-package"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [
+    "dext7r"
+  ],
+  "author": "h7ml <h7ml@qq.com>",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dext7r/dext7r.git"
+  },
+  "lint-staged": {
+    "*.{js,html,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.css": "stylelint --fix",
+    "*.{md,json}": "prettier"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@dext7r/cz-config": "^1.0.0",
+    "@dext7r/eslint-config": "^1.0.0",
+    "@dext7r/stylelint-config": "^1.0.0",
+    "@linkmore/commitlint-config": "^1.0.2",
+    "lerna": "^5.4.3",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.13.0"
+  }
+}
