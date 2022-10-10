@@ -4,14 +4,21 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent",
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
+  "private": true,
+  "license": "MIT",
   "command": {
     "bootstrap": {
       "ignore": "",
       "npmClientArgs": ""
     },
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md"]
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ]
     }
   }
 }

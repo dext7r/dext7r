@@ -104,3 +104,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+packages/dext7r/src/.vuepress/.cache/
+packages/dext7r/src/.vuepress/.temp/
+packages/dext7r/src/.vuepress/dist/

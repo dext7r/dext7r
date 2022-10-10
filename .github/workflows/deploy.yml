@@ -1,0 +1,137 @@
+name: dext7r
+
+on:
+  schedule:
+    - cron: "30 06 * * *"
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  dext7r:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install Dependencies
+        run: yarn
+
+  build-with-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Cache Node Modules
+        # 为 step 设置 id，可通过 steps.[id].outputs 获取到该步骤的值
+        # 在往下两步，安装依赖时，将有用到
+        id: cache-node-modules
+        # 使用 cache action 进行目录资源缓存
+        uses: actions/cache@v2
+        with:
+          # 对 node_modules 目录进行缓存
+          path: node_modules
+          # 根据字段 node-modules- 与 yarn.lock 的 hash 值作为 key
+          # 当 yarn.lock 内容未发生更改时，key 将不会更改，则命中缓存
+          # 如果使用 npm 作为包管理工具，则是 package-lock.json
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: node-modules-
+
+      # 查看缓存是否设置成功，输出 node_modules 目录
+      - name: Check Install/Build Cache
+        run: ls -lah node_modules | head -5
+
+      - name: Install Dependencies
+        # 如果命中 key，则直接跳过依赖安装
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn
+      - name: Build Dependencies
+        run: yarn build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: packages/dext7r/src/.vuepress/dist/
+      - name: Deploy to surge 🚀
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: "dext7r.surge.sh"
+          project: "./packages/dext7r/src/.vuepress/dist/"
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
+      - name: Upload surge service and generate preview URL 🚀
+        id: deploy
+        run: |
+          export GITHUB_SHA=${{ github.sha }}
+          export GITHUB_SHA_SUB=${GITHUB_SHA: 0: 7 }
+          export DEPLOY_DOMAIN=https://dext7r-$GITHUB_SHA_SUB.surge.sh
+          npx surge --project ./packages/dext7r/src/.vuepress/dist --domain $DEPLOY_DOMAIN --token ${{ secrets.surge_token }}
+          echo the preview URL is $DEPLOY_DOMAIN
+          echo "::set-output name=url::$DEPLOY_DOMAIN"
+      #      - name: Deploy to vercel 🚀
+      #        uses: amondnet/vercel-action@v20
+      #        with:
+      #          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      #          github-token: ${{ secrets.GIT_TOKEN }}
+      #          vercel-args: '--prod' #Optional
+      #          vercel-org-id: ${{ secrets.ORG_ID}}
+      #          vercel-project-id: ${{ secrets.PROJECT_ID}}
+      #          working-directory: ./dev
+      #      # 使用云开发 Github Action 部署
+      #      - name: Deploy CloudBase 🚀
+      #        uses: TencentCloudBase/cloudbase-action@v1.1.0
+      #        with:
+      #          # 云开发的访问密钥 secretId 和 secretKey
+      #          secretId: ${{ secrets.SECRET_ID }}
+      #          secretKey: ${{ secrets.SECRET_KEY }}
+      #          # 云开发的环境id
+      #          envId: ${{ secrets.ENV_ID }}
+      #          # Github 项目静态文件的路径
+      #          staticSrcPath: ./dev
+      - name: Accurics Scan 🚀
+        id: accurics-scan
+        uses: docker://accurics/terrascan-action:latest
+        with:
+          only_warn: true
+          verbose: true
+          webhook_url: https://app.accurics.com/v1/api/terrascan
+          webhook_token: d73c0d62-aab9-4d65-940d-2e6b690a48a7
+      - name: Upload  🚀
+        uses: actions/upload-artifact@v2
+        with:
+          name: dext7r
+          path: packages/dext7r/src/.vuepress/dist/
+
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync to Gitee  🚀
+        uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+        with:
+          source-repo: git@github.com:dext7r/dext7r.git
+          destination-repo: git@gitee.com:dext7r/dext7r.git
+
+      - name: Build Gitee Pages  🚀
+        uses: yanglbme/gitee-pages-action@main
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: h7ml
+          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错
+          gitee-repo: dext7r/dext7r
+          # 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）
+          branch: gh-pages
+    needs: dext7r
