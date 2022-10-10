@@ -59,6 +59,8 @@
     "lerna": "^5.4.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "stylelint": "^14.13.0"
+    "stylelint": "^14.13.0",
+    "commitizen": "^4.2.5",
+    "husky": "^8.0.1"
   }
 }
