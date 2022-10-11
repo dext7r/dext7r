@@ -62,6 +62,15 @@ jobs:
         with:
           branch: gh-pages
           folder: packages/dext7r/src/.vuepress/dist/
+
+      - name: Deploy to dext7r 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: dext7r/dext7r.github.io
+          branch: master
+          folder: packages/dext7r/src/.vuepress/dist/
+          token: ${{ secrets.ACTION_SECRET }}
+
       - name: Deploy to surge 🚀
         uses: dswistowski/surge-sh-action@v1
         with:
@@ -115,13 +124,13 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-#       - name: Sync to Gitee  🚀
-#         uses: wearerequired/git-mirror-action@master
-#         env:
-#           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-#         with:
-#           source-repo: git@github.com:dext7r/dext7r.git
-#           destination-repo: git@gitee.com:dext7r/dext7r.git
+      #       - name: Sync to Gitee  🚀
+      #         uses: wearerequired/git-mirror-action@master
+      #         env:
+      #           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+      #         with:
+      #           source-repo: git@github.com:dext7r/dext7r.git
+      #           destination-repo: git@gitee.com:dext7r/dext7r.git
 
       - name: Build Gitee Pages  🚀
         uses: yanglbme/gitee-pages-action@main
