@@ -1,8 +1,11 @@
 name: 🤖 Auto Make Release
 
-on: create
+on:
+  push:
+    tags:
+      - 'v*'
   workflow_dispatch:
-  
+
 jobs:
   release-helper:
     runs-on: ubuntu-latest
