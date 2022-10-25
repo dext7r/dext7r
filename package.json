@@ -14,7 +14,14 @@
     "publish": "lerna publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,json}\"",
     "dev": "cd packages/dext7r && yarn dev",
-    "build": "cd packages/dext7r && yarn build"
+    "build": "cd packages/dext7r && yarn build",
+    "release": "standard-version",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "release:major": "standard-version -r major -n",
+    "release:patch": "standard-version -r patch -n",
+    "prerelease:alpha": "standard-version -p alpha -n",
+    "prerelease:beta": "standard-version -p beta -n",
+    "prerelease:rc": "standard-version -p rc -n"
   },
   "workspaces": [
     "packages/*"
@@ -63,9 +70,11 @@
     "lerna": "^5.4.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "stylelint": "^14.13.0"
-  },
-  "dependencies": {
-    "@dext7r/prettier": "^0.0.9"
+    "stylelint": "^14.13.0",
+    "@dext7r/prettier": "^0.0.9",
+    "conventional-changelog": "^3.1.25",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "3.3.0",
+    "standard-version": "^9.5.0"
   }
 }
