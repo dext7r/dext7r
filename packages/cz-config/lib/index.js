@@ -24,6 +24,7 @@ module.exports = {
       name: 'chore:    对构建过程或辅助工具和库的更改（不影响源文件、测试用例）',
     },
     { value: 'revert', name: 'revert:   回滚 commit' },
+    { value: 'publish', name: 'publish:   发布版本 publish' },
   ],
   // 消息步骤
   messages: {
