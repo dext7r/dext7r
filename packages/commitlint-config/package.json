@@ -5,6 +5,7 @@
   "author": "h7ml <h7ml@qq.com>",
   "license": "ISC",
   "main": "lib/index.js",
+  "private": true,
   "directories": {
     "lib": "lib",
     "test": "__tests__"
