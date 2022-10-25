@@ -1,7 +1,8 @@
 name: 🤖 Auto Make Release
 
 on: create
-
+  workflow_dispatch:
+  
 jobs:
   release-helper:
     runs-on: ubuntu-latest
