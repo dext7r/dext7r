@@ -29,7 +29,16 @@ module.exports = {
         'build',
       ],
     ],
+    // 提交的commit的message列表
     // subject 大小写不做校验
-    'subject-case': [0],
+    'subject-case': [0, 'never'],
+    // 头部信息最大长度为80个字符
+    'header-max-length': [2, 'always', 80],
+    // 头部信息最小长度为10个字符
+    'header-min-length': [2, 'always', 5],
+    // 提交的commit信息
+    'subject-empty': [2, 'never'],
+    'subject-max-length': [2, 'always', 100],
+    'subject-min-length': [2, 'always', 0],
   },
 }
