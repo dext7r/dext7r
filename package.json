@@ -11,7 +11,8 @@
     "lint:commit": "npm run lint && npm run commit",
     "prepare": "husky install",
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish from-package",
+    "publish": "lerna publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,json}\"",
     "dev": "cd packages/dext7r && yarn dev",
     "build": "cd packages/dext7r && yarn build"
   },
@@ -56,11 +57,14 @@
     "@dext7r/eslint-config": "^1.0.0",
     "@dext7r/stylelint-config": "^1.0.0",
     "@linkmore/commitlint-config": "^1.0.2",
+    "commitizen": "^4.2.5",
+    "husky": "^8.0.1",
     "lerna": "^5.4.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "stylelint": "^14.13.0",
-    "commitizen": "^4.2.5",
-    "husky": "^8.0.1"
+    "stylelint": "^14.13.0"
+  },
+  "dependencies": {
+    "@dext7r/prettier": "^0.0.9"
   }
 }

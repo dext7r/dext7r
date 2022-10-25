@@ -1,0 +1,42 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+env:
+  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+  TZ: Asia/Shanghai
+
+jobs:
+  dext7r:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup
+        run: npm i -g @antfu/ni pnpm yarn
+
+      - name: Install Dependencies
+        run: nci
+
+      - run: npx changelogithub
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{secrets.ACTION_SECRET}}
+
+      - name: Install Dependencies
+        run: yarn
+      - name: Publish to NPM
+        run: pnpm -r publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
