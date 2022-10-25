@@ -36,9 +36,5 @@ module.exports = {
     'header-max-length': [2, 'always', 80],
     // 头部信息最小长度为10个字符
     'header-min-length': [2, 'always', 5],
-    // 提交的commit信息
-    'subject-empty': [2, 'never'],
-    'subject-max-length': [2, 'always', 100],
-    'subject-min-length': [2, 'always', 0],
   },
 }
