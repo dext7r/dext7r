@@ -16,5 +16,5 @@ jobs:
         with:
           token: ${{ secrets.npm_token }}
           triger: 'tag'
-          changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
+          changelogs: 'CHANGELOG.md'
           branch: 'master'
