@@ -5,9 +5,22 @@
   "useWorkspaces": true,
   "version": "independent",
   "packages": ["packages/*"],
+  "changelog": {
+    "labels": {
+      "pr: enhancement": ":rocket: Enhancement",
+      "pr: bug": ":bug: Bug Fix",
+      "pr: documentation": ":book: Documentation",
+      "pr: dependency": ":deciduous_tree: Dependency"
+    },
+    "repo": "linkmore-framework",
+    "cacheDir": ".changelog"
+  },
   "private": true,
   "license": "MIT",
   "command": {
+    "version": {
+      "exact": true
+    },
     "bootstrap": {
       "ignore": "",
       "npmClientArgs": ""
