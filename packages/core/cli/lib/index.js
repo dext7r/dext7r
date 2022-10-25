@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const pkg = require('../package.json')
 const log = require('npmlog')
@@ -13,7 +13,7 @@ const commander = require('commander')
 const dotenv = require('dotenv')
 const constant = require('./const')
 
-module.exports = core;
+module.exports = core
 
 const program = new commander.Command()
 
@@ -34,11 +34,13 @@ function checkPkgVersion() {
 function checkNodeVersion() {
   // 1.获取当前Node版本号
   const currentNodeVersion = process.version
-  // 2.比对最低版本号 
+  // 2.比对最低版本号
   const lowestNodeVersion = constant.LOWEST_NODE_VERSION
 
   if (!semver.gte(currentNodeVersion, lowestNodeVersion)) {
-    throw new Error(colors.red(`dext7r 需要安装 v${lowestNodeVersion}以上版本的 Node.js`))
+    throw new Error(
+      colors.red(`dext7r 需要安装 v${lowestNodeVersion}以上版本的 Node.js`)
+    )
   }
 }
 
@@ -54,7 +56,7 @@ function checkUserHome() {
 
 function createDefaultConfig() {
   const linkConfig = {
-    home: userHome
+    home: userHome,
   }
 
   if (process.env.LINK_HOME_PATH) {
@@ -70,7 +72,7 @@ function checkEnv() {
   const envPath = path.resolve(userHome, '.env')
   if (pathExists(envPath)) {
     dotenv.config({
-      path: envPath
+      path: envPath,
     })
   }
 
@@ -78,7 +80,6 @@ function checkEnv() {
 }
 
 function registerCommand(argv) {
-
   program
     .name(Object.keys(pkg.bin)[0])
     .usage('<command> [options]')
@@ -91,36 +92,34 @@ function registerCommand(argv) {
     .option('-y, --yes', '是否跳过自定义直接下载', false)
     .action(init)
 
-  program
-    .on('option:debug', () => {
-      const { debug } = program._optionValues || {}
-      if (debug) {
-        process.env.LINK_LOG_LEVEL = 'verbose'
-      } else {
-        process.env.LINK_LOG_LEVEL = 'info'
-      }
-      log.level = process.env.LINK_LOG_LEVEL
+  program.on('option:debug', () => {
+    const { debug } = program._optionValues || {}
+    if (debug) {
+      process.env.LINK_LOG_LEVEL = 'verbose'
+    } else {
+      process.env.LINK_LOG_LEVEL = 'info'
+    }
+    log.level = process.env.LINK_LOG_LEVEL
 
-      log.verbose('debug', debug)
-    })
+    log.verbose('debug', debug)
+  })
 
-  program
-    .on('option:targetPath', () => {
-      const { targetPath } = program._optionValues || {}
-      process.env.LINK_TARGET_PATH = targetPath
-    })
+  program.on('option:targetPath', () => {
+    const { targetPath } = program._optionValues || {}
+    process.env.LINK_TARGET_PATH = targetPath
+  })
 
-  program
-    .on('command:*', (commands) => {
-      const availabelCommands = program.commands.map(command => command.name())
-      console.log(colors.red(`not found command: ${commands[0]}`))
-      if (availabelCommands.length > 0) {
-        console.log(colors.green(`availabel command: ${availabelCommands.join(',')}`))
-      }
-    })
+  program.on('command:*', (commands) => {
+    const availabelCommands = program.commands.map((command) => command.name())
+    console.log(colors.red(`not found command: ${commands[0]}`))
+    if (availabelCommands.length > 0) {
+      console.log(
+        colors.green(`availabel command: ${availabelCommands.join(',')}`)
+      )
+    }
+  })
 
-  program
-    .parse(argv)
+  program.parse(argv)
 }
 
 async function prepare() {

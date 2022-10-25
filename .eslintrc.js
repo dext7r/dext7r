@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["@dext7r/eslint-config"],
-};
+  extends: ['@dext7r/eslint-config'],
+}

@@ -1,1 +1,1 @@
-module.exports = require("@dext7r/cz-config");
+module.exports = require('@dext7r/cz-config')

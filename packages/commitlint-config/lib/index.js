@@ -1,35 +1,35 @@
 module.exports = {
-  extends: ["@commitlint/config-conventional"],
+  extends: ['@commitlint/config-conventional'],
   // 定义规则类型
   rules: {
     // type 类型定义，表示 git 提交的 type 必须在以下类型范围内
-    "type-enum": [
+    'type-enum': [
       2,
-      "always",
+      'always',
       [
         // 新功能 feature
-        "feat",
+        'feat',
         // 修复 bug
-        "fix",
+        'fix',
         // 文档注释
-        "docs",
+        'docs',
         // 代码格式(不影响代码运行的变动)
-        "style",
+        'style',
         // 重构(既不增加新功能，也不是修复bug)
-        "refactor",
+        'refactor',
         // 性能优化
-        "perf",
+        'perf',
         // 增加测试
-        "test",
+        'test',
         // 构建过程或辅助工具的变动
-        "chore",
+        'chore',
         // 回退
-        "revert",
+        'revert',
         // 打包
-        "build",
+        'build',
       ],
     ],
     // subject 大小写不做校验
-    "subject-case": [0],
+    'subject-case': [0],
   },
-};
+}
