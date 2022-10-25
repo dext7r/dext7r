@@ -1,6 +1,6 @@
 {
   "name": "@dext7r/init",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "init",
   "main": "lib/index.js",
   "repository": "https://github.com/dext7r/dext7r.git",
