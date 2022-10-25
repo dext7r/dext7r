@@ -4,7 +4,6 @@
   "description": "dext7r",
   "license": "MIT",
   "type": "module",
-  "private": true,
   "scripts": {
     "build": "vuepress build src",
     "clean-dev": "vuepress dev src --clean-cache",
