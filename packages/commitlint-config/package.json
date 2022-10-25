@@ -1,6 +1,6 @@
 {
   "name": "@dext7r/commitlint-config",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "commitlint 规则配置",
   "author": "h7ml <h7ml@qq.com>",
   "license": "ISC",
