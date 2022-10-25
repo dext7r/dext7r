@@ -1,11 +1,17 @@
 # `@dext7r/stylelint-config`
 
-> TODO: description
+## Install
+
+```bash
+npm install --save-dev @dext7r/stylelint-config
+```
+
+> `.stylelintrc.js`
 
 ## Usage
 
-```
-const stylelintConfig = require('@dext7r/stylelint-config');
-
-// TODO: DEMONSTRATE API
+```.stylelintrc.js
+module.exports = {
+  extends: ['@dext7r/eslint-config'],
+}
 ```

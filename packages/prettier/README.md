@@ -1,11 +1,17 @@
 # `@dext7r/prettier`
 
-> TODO: description
+## Install
+
+```bash
+npm install --save-dev @dext7r/prettier
+```
+
+> `prettier.config.js`
 
 ## Usage
 
-```
-const commitlintConfig = require('@dext7r/prettier');
-
-// TODO: DEMONSTRATE API
+```prettier.config.js
+module.exports = {
+  extends: ['@dext7r/prettier'],
+}
 ```

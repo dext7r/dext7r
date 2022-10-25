@@ -1,11 +1,15 @@
-# `commitlint-config`
+# `@dext7r/commitlint-config`
 
-> TODO: description
+## Install
+
+```bash
+npm install --save-dev @dext7r/commitlint-config
+```
+
+> `commitlint.config.js`
 
 ## Usage
 
-```
-const commitlintConfig = require('commitlint-config');
-
-// TODO: DEMONSTRATE API
+```commitlint.config.js
+module.exports = require('@dext7r/commitlint-config')
 ```
