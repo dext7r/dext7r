@@ -11,7 +11,5 @@ npm install --save-dev @dext7r/prettier
 ## Usage
 
 ```prettier.config.js
-module.exports = {
-  extends: ['@dext7r/prettier'],
-}
+module.exports = require('@dext7r/prettier');
 ```
