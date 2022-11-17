@@ -13,10 +13,7 @@
   "files": [
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dext7r/dext7r.git"
-  },
+  "repository": "https://github.com/dext7r/dext7r/tree/master/packages/stylelint-config",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

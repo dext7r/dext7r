@@ -13,10 +13,7 @@
     "dext7r"
   ],
   "author": "h7ml <h7ml@qq.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dext7r/dext7r.git"
-  },
+  "repository": "https://github.com/dext7r/dext7r/tree/master/packages/dext7r",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
