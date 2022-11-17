@@ -1,0 +1,22 @@
+{
+  "name": "@dext7r/prettier",
+  "version": "1.0.0",
+  "description": "prettier 规则配置",
+  "author": "h7ml <h7ml@qq.com>",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dext7r/dext7r.git"
+  }
+}
