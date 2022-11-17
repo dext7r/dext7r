@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "core",
   "main": "lib/index.js",
-  "repository": "https://github.com/dext7r/dext7r.git",
+  "repository": "https://github.com/dext7r/dext7r/tree/master/packages/core",
   "author": "h7ml <h7ml@qq.com>",
   "license": "MIT",
   "directories": {
