@@ -1,0 +1,20 @@
+name: 🤖 Auto Make Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release-helper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: make release
+        if: github.event.ref_type == 'tag'
+        uses: actions-cool/release-helper@v2
+        with:
+          token: ${{ secrets.npm_token }}
+          triger: 'tag'
+          changelogs: 'CHANGELOG.md'
+          branch: 'master'

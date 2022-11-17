@@ -1,0 +1,49 @@
+{
+  "name": "@dext7r/eslint-config",
+  "version": "1.0.0",
+  "description": "eslint规则配置",
+  "author": "h7ml <h7ml@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dext7r/dext7r.git"
+  },
+  "scripts": {
+    "lint": "eslint src --fix --ext .ts,.tsx,.js,.jsx,.html",
+    "prettier": "prettier --write .",
+    "test": "node ./__tests__/@dext7r/eslint-config.test.js"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.3"
+  },
+  "peerDependencies": {
+    "eslint": ">= 8",
+    "prettier": ">= 2",
+    "typescript": ">= 4"
+  }
+}
