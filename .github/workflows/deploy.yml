@@ -63,13 +63,6 @@ jobs:
           branch: gh-pages
           folder: packages/dext7r/src/.vuepress/dist/
 
-      - name: Deploy to dext7r 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          repository-name: dext7r/dext7r.github.io
-          branch: master
-          folder: packages/dext7r/src/.vuepress/dist/
-          token: ${{ secrets.ACTION_SECRET }}
 
       - name: Deploy to surge 🚀
         uses: dswistowski/surge-sh-action@v1
