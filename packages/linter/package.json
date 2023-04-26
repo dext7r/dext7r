@@ -1,0 +1,48 @@
+{
+  "name": "@dext7r/linter",
+  "version": "1.0.0",
+  "description": "lint工具包",
+  "author": "h7ml <h7ml@qq.com>",
+  "license": "ISC",
+  "main": "bin/index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git add . && cz",
+    "push": "npm publish --access public --registry=https://registry.npmjs.org"
+  },
+  "bin": {
+    "dext7r-lint": "./bin/index.js"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "16.2.3",
+    "@commitlint/config-conventional": "16.2.1",
+    "commitizen": "4.2.4",
+    "husky": "7.0.4",
+    "lint-staged": "12.3.7",
+    "prettier": "2.6.2",
+    "stylelint": "^14.6.0",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "typescript": "4.6.3"
+  },
+  "dependencies": {
+    "eslint": "8.22.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.30.1",
+    "eslint-plugin-react-hooks": "4.6.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dext7r/dext7r.git"
+  }
+}
