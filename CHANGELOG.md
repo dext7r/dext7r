@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/dext7r/dext7r/compare/v1.0.3...v1.0.5) (2023-04-26)
+
+
+### Features
+
+* @h7ml/lint ([3f30918](https://github.com/dext7r/dext7r/commit/3f309185fa2633b1acec02154d7c06079709d9ca))
+* **custom:** 发布版本 ([043d226](https://github.com/dext7r/dext7r/commit/043d226ad6692fd4cfad1e64bf6ef5c53e63323e))
+* **custom:** 使用 pnpm 架构 ([9ecaa0d](https://github.com/dext7r/dext7r/commit/9ecaa0d9109d6bcc03be98621f54e565aff8def3))
+* **custom:** lanra ([7ec9115](https://github.com/dext7r/dext7r/commit/7ec9115eb405d001374db6b33f0d43047fcc291c))
+
 ### [2.0.1](https://github.com/dext7r/dext7r/compare/v2.0.0...v2.0.1) (2022-10-25)
 
 ## [2.0.0](https://github.com/dext7r/dext7r/compare/v1.0.1...v2.0.0) (2022-10-25)
