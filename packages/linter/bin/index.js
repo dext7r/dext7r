@@ -2,20 +2,19 @@
 /**
  * @author        h7ml <h7ml@qq.com>
  * @date          2023-04-27 00:05:24
- * @lastModified  2023-04-27 00:05:53
+ * @lastModified  2023-04-27 00:30:40
  * Copyright © www.h7ml.cn All rights reserved
  */
 /*
  * @Author: h7ml <h7ml@qq.com>
  * @Date: 2023-04-27 00:05:24
  * @LastEditors: h7ml <h7ml@qq.com>
- * @LastEditTime: 2023-04-27 00:05:48
+ * @LastEditTime: 2023-04-27 00:30:40
  * @FilePath: \dext7r\packages\linter\bin\index.js
  * @Description: 
  * 
  * Copyright (c) 2022 by h7ml<h7ml@qq.com>, All Rights Reserved. 
  */
-
 
 const fs = require('fs');
 const path = require('path');
@@ -47,7 +46,8 @@ const packags = {
 
 function joinScripts(scriptsObj) {
   let result = '';
-  for (let key in scriptsObj) {
+  // eslint-disable-next-line guard-for-in
+  for (const key in scriptsObj) {
     result += `npm set-script ${key} '${scriptsObj[key]}' && `;
   }
   return result;
@@ -55,7 +55,8 @@ function joinScripts(scriptsObj) {
 
 function joinPackags(packagsObj) {
   let result = 'npm install -D -E ';
-  for (let key in packagsObj) {
+  // eslint-disable-next-line guard-for-in
+  for (const key in packagsObj) {
     result += ` ${key}@${packagsObj[key]} `;
   }
   return result;
