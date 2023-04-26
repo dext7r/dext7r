@@ -54,7 +54,10 @@ jobs:
         run: yarn
 
       - name: release
-        run: yarn release:patch
+        run: |
+          git config --global user.email "h7ml@qq.com"
+          git config --global user.name "h7ml"
+          yarn release:patch
 
       - run: npx changelogithub
         continue-on-error: true
