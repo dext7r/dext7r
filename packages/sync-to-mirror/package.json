@@ -1,0 +1,98 @@
+{
+  "name": "@dext7r/sync-to-mirror",
+  "version": "0.0.3",
+  "license": "MIT",
+  "author": "h7ml <h7ml@qq.com>",
+  "description": "自动同步 npm 包到淘宝镜像源",
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git add . && cz",
+    "lint": "eslint --cache . --fix",
+    "dev": "ts-node src/cli.ts",
+    "test": "ts-node  test/index.ts",
+    "build": "rimraf dist && tsc -b",
+    "push": "npm run build && npm publish --force  --access public --registry=https://registry.npmjs.org",
+    "postpublish": "node bin/index.js",
+    "updates": "ncu -u"
+  },
+  "keywords": [
+    "sync",
+    "npm mirror",
+    "postpublish"
+  ],
+  "lint-staged": {
+    "*.{js,html,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.css": "stylelint --fix",
+    "*.{md,json}": "prettier"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prettier": "lprettier",
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "main": "dist/index.js",
+  "bin": {
+    "sync-to-mirror": "bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dext7r/dext7r.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "https://github.com/dext7r/dext7r/blob/main/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/dext7r/dext7r/issues"
+  },
+  "homepage": "https://github.com/dext7r/dext7r#readme",
+  "files": [
+    "dist",
+    "bin",
+    "types"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "16.2.3",
+    "@commitlint/config-conventional": "16.2.1",
+    "@dext7r/linter": "^1.0.4",
+    "@types/node": "18.16.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "commitizen": "4.2.4",
+    "cz-conventional-changelog": "3.0.0",
+    "cz-git": "1.6.1",
+    "eslint": "8.2.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.3.7",
+    "prettier": "2.6.2",
+    "react": "^18.2.0",
+    "rimraf": "5.0.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.6.3"
+  },
+  "dependencies": {
+    "axios": "1.4.0",
+    "cac": "6.7.14",
+    "npm-check-updates": "^16.10.9",
+    "ora": "6.3.0"
+  }
+}

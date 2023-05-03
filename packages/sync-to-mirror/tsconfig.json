@@ -1,0 +1,19 @@
+{
+  "extends": "./node_modules/@dext7r/linter/configs/tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2015",
+    "esModuleInterop": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
