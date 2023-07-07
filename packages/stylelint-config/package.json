@@ -29,7 +29,7 @@
     "stylelint-config-standard": "^28.0.0"
   },
   "devDependencies": {
-    "stylelint": "^14.12.1"
+    "stylelint": "^15.10.1"
   },
   "peerDependencies": {
     "stylelint": ">= 14"
