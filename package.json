@@ -76,6 +76,6 @@
     "prettier": "^2.7.1",
     "standard-version": "^9.5.0",
     "stylelint": "^14.13.0",
-    "pnpm": "^7.15.0"
+    "pnpm": "^7.33.4"
   }
 }
