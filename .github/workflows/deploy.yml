@@ -1,8 +1,8 @@
 name: dext7r
 
 on:
-  schedule:
-    - cron: "30 06 * * *"
+  # schedule:
+  #   - cron: "30 06 * * *"
   push:
     branches:
       - master
