@@ -1,12 +1,11 @@
 {
   "name": "@dext7r/linter",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "lint工具包",
   "author": "h7ml <h7ml@qq.com>",
   "license": "ISC",
   "main": "bin/index.js",
   "scripts": {
-    "prepare": "husky install",
     "commit": "git add . && cz",
     "push": "npm publish --access public --registry=https://registry.npmjs.org"
   },

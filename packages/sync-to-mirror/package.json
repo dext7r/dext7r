@@ -1,11 +1,10 @@
 {
   "name": "@dext7r/sync-to-mirror",
-  "version": "0.0.3",
+  "version": "1.1.1",
   "license": "MIT",
   "author": "h7ml <h7ml@qq.com>",
   "description": "自动同步 npm 包到淘宝镜像源",
   "scripts": {
-    "prepare": "husky install",
     "commit": "git add . && cz",
     "lint": "eslint --cache . --fix",
     "dev": "ts-node src/cli.ts",
